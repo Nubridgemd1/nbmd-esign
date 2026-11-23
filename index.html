@@ -13,6 +13,7 @@
     --sans:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;
   }
   *{box-sizing:border-box}
+  [hidden]{display:none!important}
   html,body{margin:0;background:#eef2f6;color:var(--ink);font-family:var(--sans);line-height:1.5}
   .sheet{max-width:860px;margin:26px auto;background:var(--paper);padding:52px 60px 60px;
          box-shadow:0 10px 40px rgba(3,39,72,.12);border-radius:4px}
@@ -61,6 +62,9 @@
   .deliver .btn-send{background:var(--green);color:#fff;padding:10px 16px;margin-right:8px}
   .deliver .btn-dl{background:var(--navy);color:#fff;padding:10px 16px;margin-right:8px}
   .recips{font-size:12px;color:var(--mute);margin-top:10px}
+  .handoff{border-color:#bcd9fb;background:#f1f7ff}
+  .handoff b{color:var(--blue)}
+  .handoff input{display:block;width:100%;max-width:380px;border:1px solid var(--line);border-radius:8px;padding:12px;font-size:16px;margin:4px 0 12px;font-family:var(--sans)}
   .legal{font-size:11.5px;color:var(--mute);margin-top:18px;border-top:1px solid var(--line);padding-top:12px}
   .audit{font-size:10.5px;color:#8a97a2;margin-top:6px;word-break:break-word}
   @media print{
@@ -248,11 +252,22 @@
     </div>
   </div>
 
+  <!-- Handoff: NP has signed on this device — send to the physician to countersign -->
+  <div class="deliver handoff" id="handoff" hidden>
+    <b>✓ Nurse Practitioner signed — now send to the Collaborating Physician to countersign.</b>
+    <p>Enter Dr. Bilal&rsquo;s email and send. The link carries your signature, so the physician opens it already
+      showing your signature and simply adds theirs. When the physician signs, both parties receive the fully executed copy.</p>
+    <input id="send_md_email" type="email" placeholder="Collaborating Physician&rsquo;s email">
+    <button class="btn-send" id="sendMdBtn">✉ Send to physician to countersign</button>
+    <button class="btn-dl" id="copyMdBtn">Copy link for physician</button>
+    <div class="recips" id="sendNote"></div>
+  </div>
+
   <!-- Delivery (shown once both parties execute) -->
   <div class="deliver" id="deliver" hidden>
     <b>✓ Both parties have executed this Agreement.</b>
-    <p>Send the fully executed copy to both parties: <b>1)</b> download the executed copy, then <b>2)</b> email both parties and attach it.
-      The email opens pre-addressed to both addresses below.</p>
+    <p>Both signatures are in place. Email both parties a link to the fully executed agreement &mdash; each can open it to view,
+      download and print their own copy &mdash; or download the PDF now.</p>
     <button class="btn-dl" onclick="window.print()">⬇ Download executed copy (PDF)</button>
     <button class="btn-send" id="emailBtn">✉ Email executed copy to both parties</button>
     <div class="recips" id="recips"></div>
@@ -272,14 +287,21 @@
   var state=load();
   var EMAIL_RE=/^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
-  // License/DEA numbers travel in the link hash (kept out of the page source).
+  // The link hash carries the license/DEA numbers (kept out of page source) and,
+  // when the NP sends to the physician, the NP's signature + the physician's email.
+  var CRED={}, npFromLink=false, mdFromLink=false;
   (function prefill(){
     try{
       var h=location.hash.replace(/^#/,''); if(!h) return;
       var d=JSON.parse(atob(decodeURIComponent(h)));
+      ['npLic','npDea','mdLic','mdDea'].forEach(function(k){ if(d[k]) CRED[k]=d[k]; });
       [['np_lic','npLic'],['np_dea','npDea'],['md_lic','mdLic'],['md_dea','mdDea']].forEach(function(p){
         var el=document.getElementById(p[0]); if(el&&d[p[1]]) el.textContent=d[p[1]];
       });
+      if(d.md_email) state.email_md=d.md_email;
+      if(d.sig_np && d.sig_np.name){ state.sig_np=d.sig_np; npFromLink=true; }
+      if(d.sig_md && d.sig_md.name){ state.sig_md=d.sig_md; mdFromLink=true; }
+      save(state);
     }catch(e){}
   })();
 
@@ -293,7 +315,28 @@
     var sig=state['sig_'+p];
     if(sig && sig.name){ mark.textContent=sig.name; stamp.textContent='e-signed '+sig.when+(sig.email?' · '+sig.email:''); }
     else { mark.textContent=''; stamp.textContent=''; }
-    updateAudit(); updateDeliver();
+    updateAudit(); updateDeliver(); updateHandoff(); lockCard(p);
+  }
+  function lockCard(p){
+    var card=document.querySelector('.sigcard[data-party="'+p+'"]'); if(!card) return;
+    var signed=!!(state['sig_'+p]&&state['sig_'+p].name);
+    var fields=card.querySelector('.sigfields'), consent=card.querySelector('.consent'),
+        adopt=card.querySelector('.btn-sign[data-for="'+p+'"]'), clr=card.querySelector('.btn-clear[data-clear="'+p+'"]');
+    if(fields) fields.hidden=signed;
+    if(consent) consent.hidden=signed;
+    if(adopt) adopt.hidden=signed;
+    if(clr) clr.hidden = signed && ((p==='np'&&npFromLink)||(p==='md'&&mdFromLink)); // can't clear a signature received via the link
+  }
+  function buildLink(extra){
+    var payload={}; ['npLic','npDea','mdLic','mdDea'].forEach(function(k){ if(CRED[k]) payload[k]=CRED[k]; });
+    if(extra) Object.keys(extra).forEach(function(k){ payload[k]=extra[k]; });
+    return location.origin+location.pathname+'#'+encodeURIComponent(btoa(JSON.stringify(payload)));
+  }
+  function updateHandoff(){
+    var h=document.getElementById('handoff');
+    var show = state.sig_np && state.sig_np.name && !(state.sig_md && state.sig_md.name) && !npFromLink;
+    h.hidden=!show;
+    if(show){ var f=document.getElementById('send_md_email'); if(!f.value && state.email_md) f.value=state.email_md; }
   }
   function updateAudit(){
     var parts=[]; var np=state.sig_np, md=state.sig_md;
@@ -337,20 +380,44 @@
   document.getElementById('emailBtn').addEventListener('click',function(){
     if(!bothSigned()) return;
     var np=state.sig_np, md=state.sig_md;
+    var link=buildLink({sig_np:np, sig_md:md});
     var to=encodeURIComponent(np.email)+','+encodeURIComponent(md.email);
     var subj=encodeURIComponent('Executed Collaborating Physician Agreement — Ekaete Okon, APRN-PMHNP-BC & Muhammad Bilal, MD');
     var body=
-      'Please find the fully executed Collaborating Physician Agreement (NubridgeMD), State of Texas, between '+
-      'Ekaete Okon, APRN-PMHNP-BC and Muhammad Bilal, MD.\n\n'+
+      'The Collaborating Physician Agreement (NubridgeMD, State of Texas) between Ekaete Okon, APRN-PMHNP-BC and '+
+      'Muhammad Bilal, MD is now fully executed.\n\n'+
       'EXECUTION\n'+
       '- Nurse Practitioner: '+np.name+' ('+np.email+') - e-signed '+np.when+'\n'+
       '- Collaborating Physician: '+md.name+' ('+md.email+') - e-signed '+md.when+'\n\n'+
-      'Effective: November 1, 2026 - State of Texas.\n'+
-      'Practice locations/platforms include PEP Wellness Center, Headway, and any other telehealth platforms through which the NP currently '+
-      'provides or may provide services in the future, subject to applicable laws, licensure, scope of practice and the terms of the Agreement.\n\n'+
-      'The fully executed copy (PDF) is attached. Executed electronically under the U.S. E-SIGN Act and UETA via NubridgeMD.';
+      'Open the fully executed agreement here to view, download and print your copy:\n'+link+'\n\n'+
+      'Effective November 1, 2026 - State of Texas. Practice locations include PEP Wellness Center, Headway and other telehealth '+
+      'platforms. Executed electronically under the U.S. E-SIGN Act and UETA via NubridgeMD.';
     window.location.href='mailto:'+to+'?subject='+subj+'&body='+encodeURIComponent(body);
   });
+
+  document.getElementById('sendMdBtn').addEventListener('click',function(){
+    if(!(state.sig_np&&state.sig_np.name)) return;
+    var mdEmail=document.getElementById('send_md_email').value.trim(), note=document.getElementById('sendNote');
+    if(!EMAIL_RE.test(mdEmail)){ note.textContent='Enter a valid email address for the physician.'; return; }
+    state.email_md=mdEmail; save(state);
+    var np=state.sig_np, link=buildLink({md_email:mdEmail, sig_np:np});
+    var subj=encodeURIComponent('Please countersign — Collaborating Physician Agreement (NubridgeMD, Texas)');
+    var body=
+      'Dr. Bilal,\n\n'+np.name+' (Nurse Practitioner) has signed the Collaborating Physician Agreement and is sending it to you to '+
+      'countersign.\n\nOpen this link to review and e-sign — it already shows the NP’s signature:\n'+link+'\n\n'+
+      'When you sign, both of you receive the fully executed copy. State of Texas - Effective November 1, 2026 - Facilitated by '+
+      'NubridgeMD. Practice locations include PEP Wellness Center, Headway and other telehealth platforms.';
+    window.location.href='mailto:'+encodeURIComponent(mdEmail)+'?subject='+subj+'&body='+encodeURIComponent(body);
+  });
+  document.getElementById('copyMdBtn').addEventListener('click',function(){
+    var mdEmail=document.getElementById('send_md_email').value.trim();
+    var link=buildLink({md_email:(EMAIL_RE.test(mdEmail)?mdEmail:undefined), sig_np:state.sig_np});
+    var note=document.getElementById('sendNote');
+    function done(){ note.textContent='Link copied — paste it to the physician.'; }
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(link).then(done,fb); } else fb();
+    function fb(){ var t=document.createElement('textarea'); t.value=link; t.style.position='fixed'; t.style.opacity='0'; document.body.appendChild(t); t.focus(); t.select(); try{document.execCommand('copy');}catch(e){} t.remove(); done(); }
+  });
+
   render('np'); render('md');
 })();
 </script>
