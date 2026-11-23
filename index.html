@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Collaborating Physician Agreement — Ekaete Okon, APRN-PMHNP-BC &amp; Muhammad Bilal, MD</title>
+<style>
+  :root{
+    --blue:#0889FC; --navy:#032748; --pink:#FC2A69; --ink:#1f2a37; --mute:#5a6b7b;
+    --line:#dfe6ee; --soft:#f6f9fc; --paper:#ffffff; --green:#157F3C;
+    --serif:Georgia,'Times New Roman',serif;
+    --sans:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#eef2f6;color:var(--ink);font-family:var(--sans);line-height:1.5}
+  .sheet{max-width:860px;margin:26px auto;background:var(--paper);padding:52px 60px 60px;
+         box-shadow:0 10px 40px rgba(3,39,72,.12);border-radius:4px}
+  .lh{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
+      border-bottom:3px solid var(--blue);padding-bottom:16px}
+  .lh .logo svg{height:40px;width:auto;display:block}
+  .lh .meta{text-align:right;font-size:11.5px;color:var(--mute);line-height:1.5}
+  .lh .meta b{color:var(--navy)}
+  .eyebrow{color:var(--blue);font-weight:800;letter-spacing:.22em;font-size:11.5px;text-transform:uppercase;margin:30px 0 6px}
+  h1{font-family:var(--serif);color:var(--navy);font-size:30px;line-height:1.12;margin:0 0 6px;font-weight:700}
+  .subtitle{color:var(--mute);font-size:14px;margin:0 0 4px}
+  .parties{font-size:13.5px;color:var(--navy);margin:10px 0 0;font-weight:600}
+  .lede{font-size:14px;color:var(--ink);margin:20px 0 6px}
+  h2{font-family:var(--serif);color:var(--navy);font-size:17px;margin:26px 0 7px;font-weight:700}
+  p,li{font-size:14px;color:var(--ink)}
+  p{margin:8px 0}
+  ul{margin:8px 0;padding-left:22px}
+  li{margin:5px 0}
+  b.val{color:var(--navy)}
+  .callout{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:8px;padding:14px 18px;margin:10px 0}
+  .callout h2{margin-top:0}
+  .sign-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:14px}
+  .sigcard{border:1px solid var(--line);border-radius:12px;padding:18px 18px 16px;background:#fff}
+  .sigcard .role{font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--mute);text-transform:uppercase}
+  .sigline{height:70px;border-bottom:1.5px solid var(--navy);display:flex;align-items:center;margin:14px 0 8px}
+  .sigline .mark{font-family:'Segoe Script','Brush Script MT',cursive;font-size:34px;color:#15325a;padding-left:4px}
+  .sigcard .nm{font-family:var(--serif);font-weight:700;color:var(--navy);font-size:17px;margin-top:4px}
+  .sigcard .cred{font-size:12px;color:var(--mute)}
+  .stamp{font-size:12px;color:var(--mute);margin-top:4px;min-height:16px}
+  .sigfields{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+  .sigfields input{border:1px solid var(--line);border-radius:8px;padding:12px 12px;font-size:16px;font-family:var(--sans)}
+  .consent{display:flex;gap:8px;align-items:flex-start;margin-top:10px;font-size:11.5px;color:var(--mute)}
+  .consent input{margin-top:2px}
+  .sigbtns{display:flex;gap:8px;margin-top:10px}
+  button{font-family:var(--sans);font-weight:700;border:0;border-radius:8px;cursor:pointer;font-size:13px;min-height:44px}
+  .btn-sign{background:var(--blue);color:#fff;padding:9px 14px}
+  .btn-sign:disabled{background:#b7d8fb;cursor:not-allowed}
+  .btn-clear{background:transparent;color:var(--mute);border:1px solid var(--line);padding:9px 12px}
+  .bar{position:sticky;top:0;z-index:5;background:#0b2545;color:#fff;display:flex;gap:12px;align-items:center;justify-content:space-between;
+       padding:10px 18px;font-size:13px}
+  .bar .btn-print{background:var(--blue);color:#fff;padding:8px 16px}
+  .bar .hint{opacity:.85}
+  .deliver{margin-top:20px;border:1px solid #bfe3cb;background:#f1faf4;border-radius:12px;padding:16px 18px}
+  .deliver b{color:var(--green)}
+  .deliver p{margin:6px 0 12px;font-size:13px;color:var(--ink)}
+  .deliver .btn-send{background:var(--green);color:#fff;padding:10px 16px;margin-right:8px}
+  .deliver .btn-dl{background:var(--navy);color:#fff;padding:10px 16px;margin-right:8px}
+  .recips{font-size:12px;color:var(--mute);margin-top:10px}
+  .legal{font-size:11.5px;color:var(--mute);margin-top:18px;border-top:1px solid var(--line);padding-top:12px}
+  .audit{font-size:10.5px;color:#8a97a2;margin-top:6px;word-break:break-word}
+  @media print{
+    body{background:#fff}
+    .bar,.sigfields,.consent,.sigbtns,.deliver{display:none !important}
+    .sheet{box-shadow:none;margin:0;max-width:none;padding:26px 30px}
+    a{color:inherit;text-decoration:none}
+  }
+  @media(max-width:620px){
+    body{overflow-x:hidden}
+    .bar{flex-wrap:wrap;gap:8px;padding:10px max(14px,env(safe-area-inset-left)) 10px max(14px,env(safe-area-inset-right))}
+    .bar .hint{flex:1 1 100%;order:2;font-size:11.5px}
+    .bar .btn-print{order:1}
+    .sheet{margin:0 auto;padding:24px max(16px,env(safe-area-inset-left)) 40px max(16px,env(safe-area-inset-right));border-radius:0;box-shadow:none;max-width:100%}
+    .sign-grid{grid-template-columns:1fr}
+    .lh{flex-direction:column;align-items:flex-start;gap:10px}.lh .meta{text-align:left}
+    h1{font-size:25px}
+    .sigbtns{flex-wrap:wrap}.sigbtns .btn-sign{flex:1 1 auto}
+    .deliver .btn-dl,.deliver .btn-send{display:block;width:100%;margin:0 0 8px}
+  }
+  @media(max-width:400px){ .sheet{padding:20px 14px 36px} h1{font-size:23px} }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <span class="hint">Each party enters their email, consents, and e-signs. The NP signs first. When both have signed, send the executed copy to both emails.</span>
+  <button class="btn-print" onclick="window.print()">Download / Print (PDF)</button>
+</div>
+
+<div class="sheet" id="doc">
+  <div class="lh">
+    <div class="logo">
+      <svg width="261" height="41" viewBox="0 0 261 41" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="NubridgeMD">
+        <path d="M33.5439 9.30859V27.9531H24.0566V10.165H9.65625V27.793L0 18.1367V0H24.2354L33.5439 9.30859Z" fill="#0889FC"/>
+        <path d="M21.5161 29.6467H35.9155V11.8586H36.0942L45.5718 21.3362V39.8117H20.6128L12.0288 31.0334V11.8586H21.5161V29.6467Z" fill="#FC2A69"/>
+        <path d="M58.4852 25.4878H53.0767V0.473249H58.4852L69.0319 16.3947V0.473249H74.4405V25.4878H69.0319L58.4852 9.60019V25.4878Z" fill="#032748"/>
+        <path d="M90.2312 8.58608H95.4369V25.4878H90.5354L90.1974 23.5948C89.1495 24.9808 87.0536 25.9273 85.0254 25.9273C81.1718 25.9273 78.8056 23.3582 78.8056 19.2004V8.58608H84.0113V17.3074C84.0113 20.0793 84.9578 21.2962 87.0874 21.2962C89.3185 21.2962 90.2312 20.1469 90.2312 17.375V8.58608Z" fill="#032748"/>
+        <path d="M99.9856 25.4878V0.473249H110.397C115.434 0.473249 118.476 3.10992 118.476 7.40296C118.476 10.0734 117.259 12.034 114.994 13.0143C117.462 13.8256 118.78 15.7524 118.78 18.5919C118.78 23.0202 115.806 25.4878 110.397 25.4878H99.9856ZM109.822 5.27334H105.462V10.7157H109.822C111.783 10.7157 112.865 9.7354 112.865 7.94381C112.865 6.18603 111.817 5.27334 109.822 5.27334ZM110.093 15.313H105.462V20.6877H110.093C112.121 20.6877 113.169 19.775 113.169 17.9158C113.169 16.2257 112.087 15.313 110.093 15.313Z" fill="#032748"/>
+        <path d="M133.452 8.58608V13.4876H131.796C128.821 13.4876 127.03 14.8059 127.03 18.1525V25.4878H121.824V8.61989H126.725L126.996 11.1213C127.706 9.46497 129.193 8.34946 131.458 8.34946C132.066 8.34946 132.742 8.41706 133.452 8.58608Z" fill="#032748"/>
+        <path d="M138.654 5.94941C136.997 5.94941 135.679 4.63107 135.679 2.97471C135.679 1.31833 136.997 0.033803 138.654 0.033803C140.276 0.033803 141.595 1.31833 141.595 2.97471C141.595 4.63107 140.276 5.94941 138.654 5.94941ZM136.085 25.4878V8.58608H141.291V25.4878H136.085Z" fill="#032748"/>
+        <path d="M152.295 25.9273C147.427 25.9273 144.283 22.4793 144.283 17.1384C144.283 11.7636 147.495 8.04523 152.633 8.04523C154.728 8.04523 156.723 8.89031 157.703 10.141V0H162.909V25.4878H158.007L157.737 23.3244C156.824 24.8794 154.728 25.9273 152.295 25.9273ZM153.545 21.161C155.979 21.161 157.669 19.4708 157.669 16.9355C157.669 14.4003 155.979 12.7101 153.545 12.7101C151.078 12.7101 149.523 14.4341 149.523 16.9355C149.523 19.437 151.078 21.161 153.545 21.161Z" fill="#032748"/>
+        <path d="M165.973 16.7327C165.973 11.5946 169.32 8.01142 174.086 8.01142C176.385 8.01142 178.21 8.89031 179.123 10.2763L179.393 8.58608H184.295V24.4061C184.295 30.4569 180.813 34.1077 175.032 34.1077C169.861 34.1077 166.379 31.1668 165.906 26.3667H171.179C171.28 28.2597 172.7 29.3752 174.999 29.3752C177.5 29.3752 179.089 27.8879 179.089 25.4878V23.2906C178.075 24.5075 176.182 25.285 173.985 25.285C169.252 25.285 165.973 21.8032 165.973 16.7327ZM171.213 16.5975C171.213 19.0314 172.835 20.7553 175.134 20.7553C177.5 20.7553 179.089 19.099 179.089 16.5975C179.089 14.1299 177.5 12.5411 175.1 12.5411C172.801 12.5411 171.213 14.1975 171.213 16.5975Z" fill="#032748"/>
+        <path d="M196.052 25.9273C190.948 25.9273 187.297 22.2089 187.297 17.0031C187.297 11.7298 190.846 8.04523 195.95 8.04523C201.258 8.04523 204.57 11.527 204.57 17.0369V18.3553L192.3 18.4229C192.604 20.6539 193.855 21.7018 196.153 21.7018C198.114 21.7018 199.5 20.992 199.872 19.775H204.638C204.029 23.5272 200.683 25.9273 196.052 25.9273ZM195.984 12.2707C193.922 12.2707 192.773 13.1834 192.367 15.2116H199.398C199.398 13.42 198.08 12.2707 195.984 12.2707Z" fill="#032748"/>
+        <path d="M213.602 25.4878H208.295V0.473249H213.602L221.039 19.1328L228.51 0.473249H233.885V25.4878H228.577V20.2483C228.577 14.8397 228.577 13.6566 228.848 11.7974L223.541 25.4878H218.538L213.264 11.7974C213.569 13.6566 213.602 15.7524 213.602 18.4905V25.4878Z" fill="#0889FC"/>
+        <path d="M248.898 25.4878H239.095V0.473249H248.56C255.895 0.473249 260.999 5.61138 260.999 13.0481C260.999 20.3497 256.03 25.4878 248.898 25.4878ZM248.019 5.54377H244.571V20.4173H248.357C252.684 20.4173 255.219 17.6792 255.219 13.0481C255.219 8.31565 252.549 5.54377 248.019 5.54377Z" fill="#0889FC"/>
+      </svg>
+    </div>
+    <div class="meta"><b>NubridgeMD · Texas</b><br>Physician Collaboration Platform<br>www.nubridgemd.com</div>
+  </div>
+
+  <div class="eyebrow">Collaborating Physician Agreement</div>
+  <h1>Collaborating Physician Agreement</h1>
+  <p class="subtitle">Psychiatric-Mental Health Nurse Practitioner Collaboration · State of Texas · Facilitated by NubridgeMD</p>
+  <p class="parties">Between <b>Ekaete Okon, APRN-PMHNP-BC</b> (Nurse Practitioner) and <b>Muhammad Bilal, MD</b> (Collaborating Physician)</p>
+
+  <p class="lede">This Collaborating Physician Agreement (the &ldquo;Agreement&rdquo;) is entered into and effective as of
+    <b class="val">November 1, 2026</b> (the &ldquo;Effective Date&rdquo;), by and between
+    <b>Ekaete Okon, APRN-PMHNP-BC</b>, a board-certified Psychiatric-Mental Health Nurse Practitioner (the &ldquo;Nurse Practitioner&rdquo; or &ldquo;NP&rdquo;),
+    and <b>Muhammad Bilal, MD</b>, a licensed physician (the &ldquo;Collaborating Physician&rdquo; or &ldquo;Physician&rdquo;). The collaboration is
+    facilitated by NubridgeMD. The NP and the Physician are each a &ldquo;Party&rdquo; and together the &ldquo;Parties.&rdquo;</p>
+
+  <h2>1. Purpose</h2>
+  <p>The Physician agrees to serve as the collaborating (or supervising, as the applicable jurisdiction may designate) physician for the
+    Nurse Practitioner&rsquo;s psychiatric-mental health practice. The Parties enter into this collaboration to support the delivery of safe,
+    high-quality patient care in accordance with the NP&rsquo;s scope of practice, applicable federal and Texas law, and the rules of the
+    Texas Board of Nursing and the Texas Medical Board.</p>
+
+  <h2>2. Licensure &amp; Credentials</h2>
+  <p>Each Party represents that they hold, and will maintain throughout the term, a current, active and unrestricted license to practice in the
+    State of <b class="val">Texas</b> (and any other state in which services are provided), together with all certifications, DEA registrations
+    and other registrations required for their role. The Nurse Practitioner is a certified Psychiatric-Mental Health Nurse Practitioner
+    (APRN-PMHNP-BC). Identifying details:</p>
+  <ul>
+    <li>Nurse Practitioner — Ekaete Okon, APRN-PMHNP-BC · Texas License No. <b class="val" id="np_lic">__________</b> · DEA No. <b class="val" id="np_dea">__________</b></li>
+    <li>Collaborating Physician — Muhammad Bilal, M.D./D.O. · Texas License No. <b class="val" id="md_lic">__________</b> · DEA No. <b class="val" id="md_dea">__________</b></li>
+  </ul>
+
+  <h2>3. Scope of Practice</h2>
+  <p>The Nurse Practitioner will provide psychiatric-mental health services within the scope of her education, national certification, licensure
+    and applicable law &mdash; including psychiatric evaluation, diagnosis, medication management, psychotherapy and related behavioral-health
+    services &mdash; for the patient population authorized by her national certification (<b>Psychiatric-Mental Health &mdash; Across the
+    Lifespan</b>). The NP will practice in accordance with prevailing standards of care and will consult with, and refer to, the Collaborating
+    Physician as clinically appropriate and as required by applicable law.</p>
+
+  <div class="callout">
+    <h2>4. Practice Locations &amp; Telehealth Platforms</h2>
+    <p>The Nurse Practitioner provides, and may provide, services under this Agreement at and through the following practice locations and
+      platforms, <b>including but not limited to</b>:</p>
+    <ul>
+      <li><b>PEP Wellness Center</b>;</li>
+      <li><b>Headway</b>; and</li>
+      <li><b>any other telehealth platforms</b> through which <b>Ekaete Okon, APRN-PMHNP-BC</b> currently provides or may provide services in the future.</li>
+    </ul>
+    <p>The foregoing is in each case <b>subject to applicable laws, licensure requirements, scope-of-practice limitations, and the terms of this
+      Collaborating Physician Agreement</b>. The Physician&rsquo;s collaboration under this Agreement extends to the Nurse Practitioner&rsquo;s
+      practice across the locations and platforms described above, consistent with the collaboration terms set out herein and the requirements
+      of each applicable jurisdiction. The addition of a new practice location or telehealth platform does not require a separate agreement, but
+      remains governed by this Agreement and by all applicable legal and regulatory requirements.</p>
+  </div>
+
+  <h2>5. Collaboration &amp; Availability</h2>
+  <p>The Collaborating Physician will be reasonably available to the Nurse Practitioner for consultation and collaboration by telephone or secure
+    electronic means during the NP&rsquo;s practice hours, and will collaborate on the management of complex or high-acuity cases as clinically
+    indicated or as required by law. The Parties will maintain a means of timely contact and will arrange appropriate coverage during planned
+    absences.</p>
+
+  <h2>6. Chart Review &amp; Quality</h2>
+  <p>The Collaborating Physician will conduct periodic review of a representative sample of the Nurse Practitioner&rsquo;s patient records,
+    selected to include prescriptions and higher-risk encounters, and will document such reviews and collaboration at the frequency required by
+    Texas rule. The Parties will cooperate in good faith to meet all quality-assurance, consultation and record-keeping requirements imposed by
+    law or by the relevant Boards.</p>
+
+  <h2>7. Prescriptive Authority</h2>
+  <p>The Nurse Practitioner may prescribe, order and administer medications and devices within her scope of practice and in accordance with
+    applicable federal and Texas law and the requirements of this collaboration. Any prescribing of controlled substances will occur only where
+    permitted by applicable law and the terms of the collaboration, and in accordance with the NP&rsquo;s and (where required) the
+    Physician&rsquo;s DEA registrations.</p>
+
+  <h2>8. Compliance with Law</h2>
+  <p>Each Party will comply with all applicable federal and Texas laws and regulations, the rules of the Texas Board of Nursing and the Texas
+    Medical Board, the requirements of any telehealth platform or facility through which services are rendered, and all privacy and security
+    requirements, including HIPAA. Services will be delivered consistent with the standards of care for psychiatric-mental health practice.</p>
+
+  <h2>9. Professional Liability Insurance</h2>
+  <p>Each Party will maintain professional liability (malpractice) insurance in amounts customary for their role and as required by applicable law
+    or by any platform or facility through which services are provided, and will provide evidence of such coverage upon reasonable request.</p>
+
+  <h2>10. Independent Professionals</h2>
+  <p>Nothing in this Agreement creates an employment, partnership or agency relationship between the Parties. Each Party is an independently
+    licensed professional responsible for their own clinical judgment, licensure, taxes and obligations. NubridgeMD acts solely as the platform
+    that facilitates the collaboration and is not a party to the clinical care rendered.</p>
+
+  <h2>11. Term &amp; Termination</h2>
+  <p>This Agreement takes effect on the Effective Date (or on the date of the last signature below, if later) and continues until terminated,
+    and will be reviewed and renewed at least annually or as Texas law requires. Either Party may terminate this Agreement upon
+    <b class="val">thirty (30)</b> days&rsquo; written notice to the other Party. This Agreement terminates immediately upon the suspension,
+    revocation or material restriction of either Party&rsquo;s license. Upon termination, the NP will not represent that the collaboration remains
+    in effect, and the Parties will cooperate to transition patient care appropriately.</p>
+
+  <h2>12. Governing Law</h2>
+  <p>This Agreement is governed by the laws of the State of <b class="val">Texas</b>, without regard to its conflict-of-laws rules, and by all
+    applicable federal law. This is the entire agreement of the Parties; if any provision is unenforceable, the remainder stays in effect.</p>
+
+  <h2>13. Electronic Signatures</h2>
+  <p>The Parties agree that this Agreement may be executed electronically, and that electronic signatures and records are valid and enforceable to
+    the same extent as handwritten signatures and paper records under the U.S. Electronic Signatures in Global and National Commerce Act
+    (E-SIGN) and the Uniform Electronic Transactions Act (UETA). By signing below, each Party confirms that they have read, understood and agree
+    to the terms of this Agreement, and provides their email address to receive the fully executed copy.</p>
+
+  <div class="eyebrow" style="margin-top:30px">Signatures</div>
+  <div class="sign-grid">
+    <div class="sigcard" data-party="np">
+      <div class="role">Nurse Practitioner</div>
+      <div class="sigline"><span class="mark" id="np_mark"></span></div>
+      <div class="nm">Ekaete Okon</div>
+      <div class="cred">APRN-PMHNP-BC · Psychiatric-Mental Health Nurse Practitioner</div>
+      <div class="stamp" id="np_stamp"></div>
+      <div class="sigfields">
+        <input id="np_email" type="email" placeholder="Email address (to receive the executed copy)">
+        <input id="np_name" placeholder="Type full legal name to sign">
+      </div>
+      <div class="consent"><input type="checkbox" id="np_consent"><label for="np_consent">I consent to using electronic records &amp; signatures (E-SIGN / UETA), agree to this Agreement, and consent to receive the executed copy by email.</label></div>
+      <div class="sigbtns">
+        <button class="btn-sign" data-for="np" disabled>Adopt &amp; e-sign</button>
+        <button class="btn-clear" data-clear="np">Clear</button>
+      </div>
+    </div>
+
+    <div class="sigcard" data-party="md">
+      <div class="role">Collaborating Physician</div>
+      <div class="sigline"><span class="mark" id="md_mark"></span></div>
+      <div class="nm">Muhammad Bilal</div>
+      <div class="cred">M.D./D.O.</div>
+      <div class="stamp" id="md_stamp"></div>
+      <div class="sigfields">
+        <input id="md_email" type="email" placeholder="Email address (to receive the executed copy)">
+        <input id="md_name" placeholder="Type full legal name to sign">
+      </div>
+      <div class="consent"><input type="checkbox" id="md_consent"><label for="md_consent">I consent to using electronic records &amp; signatures (E-SIGN / UETA), agree to this Agreement, and consent to receive the executed copy by email.</label></div>
+      <div class="sigbtns">
+        <button class="btn-sign" data-for="md" disabled>Adopt &amp; e-sign</button>
+        <button class="btn-clear" data-clear="md">Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delivery (shown once both parties execute) -->
+  <div class="deliver" id="deliver" hidden>
+    <b>✓ Both parties have executed this Agreement.</b>
+    <p>Send the fully executed copy to both parties: <b>1)</b> download the executed copy, then <b>2)</b> email both parties and attach it.
+      The email opens pre-addressed to both addresses below.</p>
+    <button class="btn-dl" onclick="window.print()">⬇ Download executed copy (PDF)</button>
+    <button class="btn-send" id="emailBtn">✉ Email executed copy to both parties</button>
+    <div class="recips" id="recips"></div>
+  </div>
+
+  <div class="legal">Executed electronically via NubridgeMD. Both Parties consent to the use of electronic records and electronic signatures under the
+    U.S. E-SIGN Act and UETA. The NP signs first, may download a copy, and sends it to the Collaborating Physician, who executes by e-signing or by
+    manually (wet-ink) signing the copy. Upon full execution, a copy is delivered to both Parties at the email addresses they provided.</div>
+  <div class="audit" id="audit"></div>
+</div>
+
+<script>
+(function(){
+  var KEY='nbmd_collab_okon_bilal_v2';
+  function load(){ try{ return JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){ return {}; } }
+  function save(s){ try{ localStorage.setItem(KEY, JSON.stringify(s)); }catch(e){} }
+  var state=load();
+  var EMAIL_RE=/^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+  // License/DEA numbers travel in the link hash (kept out of the page source).
+  (function prefill(){
+    try{
+      var h=location.hash.replace(/^#/,''); if(!h) return;
+      var d=JSON.parse(atob(decodeURIComponent(h)));
+      [['np_lic','npLic'],['np_dea','npDea'],['md_lic','mdLic'],['md_dea','mdDea']].forEach(function(p){
+        var el=document.getElementById(p[0]); if(el&&d[p[1]]) el.textContent=d[p[1]];
+      });
+    }catch(e){}
+  })();
+
+  function fmt(d){
+    var mo=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var h=d.getHours(), m=d.getMinutes(), ap=h>=12?'PM':'AM'; h=h%12; if(h===0)h=12;
+    return mo[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear()+' at '+h+':'+(m<10?'0':'')+m+' '+ap;
+  }
+  function render(p){
+    var mark=document.getElementById(p+'_mark'), stamp=document.getElementById(p+'_stamp');
+    var sig=state['sig_'+p];
+    if(sig && sig.name){ mark.textContent=sig.name; stamp.textContent='e-signed '+sig.when+(sig.email?' · '+sig.email:''); }
+    else { mark.textContent=''; stamp.textContent=''; }
+    updateAudit(); updateDeliver();
+  }
+  function updateAudit(){
+    var parts=[]; var np=state.sig_np, md=state.sig_md;
+    if(np&&np.name) parts.push('NP: '+np.name+(np.email?' ('+np.email+')':'')+' · e-signed '+np.when);
+    if(md&&md.name) parts.push('Physician: '+md.name+(md.email?' ('+md.email+')':'')+' · e-signed '+md.when);
+    document.getElementById('audit').textContent = parts.length? ('Audit trail — '+parts.join('  |  ')) : '';
+  }
+  function bothSigned(){ return state.sig_np && state.sig_np.name && state.sig_md && state.sig_md.name; }
+  function updateDeliver(){
+    var d=document.getElementById('deliver');
+    if(bothSigned()){
+      d.hidden=false;
+      document.getElementById('recips').textContent='Recipients: '+(state.sig_np.email||'—')+'  and  '+(state.sig_md.email||'—');
+    } else { d.hidden=true; }
+  }
+  // gating: consent + name + valid email
+  ['np','md'].forEach(function(p){
+    var c=document.getElementById(p+'_consent'), n=document.getElementById(p+'_name'),
+        e=document.getElementById(p+'_email'), b=document.querySelector('.btn-sign[data-for="'+p+'"]');
+    if(state['email_'+p]) e.value=state['email_'+p];
+    function upd(){ b.disabled=!(c.checked && n.value.trim().length>1 && EMAIL_RE.test(e.value.trim())); }
+    c.addEventListener('change',upd); n.addEventListener('input',upd);
+    e.addEventListener('input',function(){ state['email_'+p]=e.value.trim(); save(state); upd(); });
+    upd();
+  });
+  document.querySelectorAll('.btn-sign[data-for]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var p=b.getAttribute('data-for');
+      var n=document.getElementById(p+'_name').value.trim(), e=document.getElementById(p+'_email').value.trim();
+      if(n.length<2 || !EMAIL_RE.test(e)) return;
+      state['sig_'+p]={name:n, email:e, when:fmt(new Date())}; save(state); render(p);
+    });
+  });
+  document.querySelectorAll('.btn-clear').forEach(function(b){
+    b.addEventListener('click',function(){
+      var p=b.getAttribute('data-clear'); delete state['sig_'+p]; save(state);
+      document.getElementById(p+'_name').value=''; document.getElementById(p+'_consent').checked=false;
+      document.querySelector('.btn-sign[data-for="'+p+'"]').disabled=true; render(p);
+    });
+  });
+  document.getElementById('emailBtn').addEventListener('click',function(){
+    if(!bothSigned()) return;
+    var np=state.sig_np, md=state.sig_md;
+    var to=encodeURIComponent(np.email)+','+encodeURIComponent(md.email);
+    var subj=encodeURIComponent('Executed Collaborating Physician Agreement — Ekaete Okon, APRN-PMHNP-BC & Muhammad Bilal, MD');
+    var body=
+      'Please find the fully executed Collaborating Physician Agreement (NubridgeMD), State of Texas, between '+
+      'Ekaete Okon, APRN-PMHNP-BC and Muhammad Bilal, MD.\n\n'+
+      'EXECUTION\n'+
+      '- Nurse Practitioner: '+np.name+' ('+np.email+') - e-signed '+np.when+'\n'+
+      '- Collaborating Physician: '+md.name+' ('+md.email+') - e-signed '+md.when+'\n\n'+
+      'Effective: November 1, 2026 - State of Texas.\n'+
+      'Practice locations/platforms include PEP Wellness Center, Headway, and any other telehealth platforms through which the NP currently '+
+      'provides or may provide services in the future, subject to applicable laws, licensure, scope of practice and the terms of the Agreement.\n\n'+
+      'The fully executed copy (PDF) is attached. Executed electronically under the U.S. E-SIGN Act and UETA via NubridgeMD.';
+    window.location.href='mailto:'+to+'?subject='+subj+'&body='+encodeURIComponent(body);
+  });
+  render('np'); render('md');
+})();
+</script>
+</body>
+</html>
